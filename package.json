@@ -14,6 +14,7 @@
     "@mastra/core": "^0.10.5",
     "@mastra/inngest": "^0.10.4",
     "@mastra/libsql": "^0.10.2",
+    "@prisma/client": "^6.10.0",
     "ai": "^4.3.16",
     "mastra": "^0.10.5",
     "next": "15.3.3",
@@ -29,7 +30,12 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
+    "prisma": "^6.10.0",
     "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
+  },
+  "prisma": {
+  "seed": "ts-node ./prisma/seed.js"
   }
 }
