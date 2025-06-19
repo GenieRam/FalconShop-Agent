@@ -1,8 +1,18 @@
 import { createTool } from "@mastra/core";
 import { z } from "zod";
+import { PrismaClient } from "@prisma/client";
 
-async function getReturnPolicy() { /* ... */ }
-async function getShippingInfo() { /* ... */ }
+const prisma = new PrismaClient();
+
+async function getReturnPolicy() {
+  const policy = await prisma.policy.findFirst({ where: { type: "returns" } });
+  return policy?.content || "No return policy found.";
+}
+
+async function getShippingInfo() {
+  const policy = await prisma.policy.findFirst({ where: { type: "shipping" } });
+  return policy?.content || "No shipping info found.";
+}
 
 export const CustomerSupportTool = createTool({
   id: "CustomerSupportTool",
